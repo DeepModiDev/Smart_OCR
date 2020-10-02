@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <h2>Upload video</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<!--	<input type="file" accept="image/*" name="document"> -->
+    	<input type="file" accept="video/*" name="document" > 
+    <button type="submit">Upload video</button>
+  </form>
+  {% if url %}
+    <p>Uploaded video: <a href="{{ url }}">{{ url }}</a></p>
+	<p> <img height="300" width="300" src="{{ url }}"/> </p>
+  {% endif %}  
+{% endblock %}
